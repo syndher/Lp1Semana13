@@ -1,11 +1,17 @@
 ﻿
 
 using System.ComponentModel;
+using System.Formats.Asn1;
 
 namespace MultipleStuff
 {
     public class SuperList : List<Double>
     {
+        private List<double> numbers;
+        public SuperList(List<double> numbers)
+        {
+            this.numbers = numbers; // Use the base class (List<double>) to add the numbers
+        }
         public class MinMax
         {
             public double Min { get; set; }
@@ -17,7 +23,6 @@ namespace MultipleStuff
             }
         }
 
-        List<Double> numbers = new List<Double> { 1, 31, 51, 2, 41, 284, 172 };
         public void GetMinMax1(out double min, out double max)
         {
             min = numbers[0];
